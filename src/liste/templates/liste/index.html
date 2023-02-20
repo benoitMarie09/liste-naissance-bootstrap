@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'liste/css/style.css' %}" />
+    <title>Liste naissance</title>
+  </head>
+  <body>
+    <header></header>
+    <main>
+      {% for cadeau in cadeaux.all %}
+      <div class="cadeau">
+        <img src="{{cadeau.image.url}}" alt="image" />
+        <h3>{{cadeau.titre}}</h3>
+        <p>{{cadeau.desc}}</p>
+        <p>
+          {{cadeau.prix}}€ chez <a href="{{cadeau.url}}">{{cadeau.web_site}}</a>
+        </p>
+        <a href="/reservation/{{cadeau.slug}}">Offrir ce cadeau</a>
+      </div>
+      {% endfor %}
+    </main>
+  </body>
+</html>

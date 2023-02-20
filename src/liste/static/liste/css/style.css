@@ -1,0 +1,19 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: grid;
+  grid-template-rows: 500px 1fr;
+  grid-template-areas: "head" "main";
+}
+
+header {
+  grid-area: head;
+  background-color: aquamarine;
+}
+
+main {
+  grid-area: main;
+}

@@ -2,6 +2,7 @@ from django.db import models
 from django.template.defaultfilters import slugify
 from django.utils import timezone
 from uuid import uuid4
+from liste.models import Cadeau
 
 # Create your models here.
 class Reservation(models.Model):
@@ -13,6 +14,8 @@ class Reservation(models.Model):
   discret = models.BooleanField(default=False)
   message = models.TextField(null=True, blank=True)
 
+  #Related Fields
+  cadeau = models.ForeignKey('liste.Cadeau',null=True, related_name='reservation', on_delete=models.CASCADE)
 
   # Utility Variable
   uniqueId = models.CharField(null=True, blank=True, max_length=100)
@@ -24,8 +27,6 @@ class Reservation(models.Model):
           self.date_created = timezone.localtime(timezone.now())
       if self.uniqueId is None:
           self.uniqueId = str(uuid4()).split('-')[4]
-          self.slug = slugify('{} {}'.format(
-              self.category.title, self.uniqueId))
       self.last_updated = timezone.localtime(timezone.now())
       
       super(Reservation, self).save(*args, **kwargs)
