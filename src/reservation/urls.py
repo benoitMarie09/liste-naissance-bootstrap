@@ -4,5 +4,5 @@ from .views import CreateReservationView, ReservationDetails
 
 urlpatterns = [
     path('<slug:slug>/', CreateReservationView.as_view(), name="reservation"),
-    path('success',ReservationDetails.as_view() ,name='success')
+    path('success/<int:pk>/',ReservationDetails.as_view() ,name='success')
 ]
