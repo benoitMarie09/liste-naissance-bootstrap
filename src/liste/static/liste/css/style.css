@@ -1,19 +1,14 @@
-html,
-body {
-  height: 100%;
-}
-
-body {
-  display: grid;
-  grid-template-rows: 500px 1fr;
-  grid-template-areas: "head" "main";
-}
-
-header {
-  grid-area: head;
-  background-color: aquamarine;
-}
-
 main {
-  grid-area: main;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  gap: 2em;
 }
+
+/* Carte cadeau */
+.cadeau{
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  background-color: bisque;
+}
+

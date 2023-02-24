@@ -5,6 +5,8 @@ from .models import Cadeau
 def liste(request):
   context = dict()
   cadeaux = Cadeau.objects.all()
+  for cadeau in cadeaux:
+    cadeau.save()
   context['cadeaux'] = cadeaux
 
 

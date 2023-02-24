@@ -1,5 +1,6 @@
 from django import forms
 from reservation.models import Reservation
+from liste.models import Cadeau
 
 class ReservationForm(forms.ModelForm):
 
@@ -13,5 +14,17 @@ class ReservationForm(forms.ModelForm):
       'discret',
       'message',
     ]
-  def __init__(self, foo=None, *args, **kwargs):
+    labels = {
+      'nom' : 'Nom :',
+      'email': 'Adresse mail :',
+      'participation_partielle' : 'Je souhaite participer partiellement',
+      'montant' : 'Montant :',
+      'discret' : 'Je ne souhaite pas que mon nom apparaisse dans la liste des cadeaux',
+      'message' : 'Un petit message pour Coline et Benoit'
+    }
+    help_texts = {
+      'nom' : 'coucou',
+    }
+  def __init__(self, *args, **kwargs):
     super(ReservationForm, self).__init__(*args, **kwargs)
+    

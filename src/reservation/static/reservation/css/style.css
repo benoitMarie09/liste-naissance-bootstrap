@@ -1,19 +1,94 @@
-html,
-body {
-  height: 100%;
-}
-
-body {
-  display: grid;
-  grid-template-rows: 500px 1fr;
-  grid-template-areas: "header" "main";
-}
-
-header {
-  grid-area: head;
-  background-color: aquamarine;
-}
-
 main {
-  grid-area: main;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cadeau{
+  grid-template-areas: 
+    "img "
+    "titre"
+    "desc"
+    "prix"
+    ;
+}
+
+section{
+  width: 80%;
+  height :auto;
+  max-width: 800px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: bisque;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+
+
+.form{
+  width : 80%;
+  padding: 1em;
+  display:flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input{
+  background-color: rgb(255, 255, 218);
+}
+
+textarea{
+  background-color: rgb(255, 255, 218);
+}
+
+#montant__container{
+  display:none;
+}
+.form__field{
+  display : flex;
+  flex-direction: column;
+}
+
+.flex-row{
+  display : flex;
+  flex-direction: column;
+}
+
+.flex-start{
+  justify-content: flex-start;
+}
+
+.buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.buttons button{
+  border : none;
+  padding: 0.5em;
+  font-size: 1.1em;
+  background-color: rgb(247, 202, 147);
+  border-radius: 0.3em;
+}
+
+.buttons button:hover {
+  background-color: rgb(247, 186, 112);
+}
+
+@media screen and (min-width : 700px) {
+  .cadeau{
+      grid-template-areas: 
+      "img titre titre"
+      "img desc desc"
+      "img prix prix"
+      ;
+  }
+  .flex-row{
+    display : flex;
+    flex-direction: row;
+  }
 }
