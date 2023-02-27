@@ -21,10 +21,10 @@ class CreateReservationView(CreateView):
         initial = initial.copy()
         cadeau = Cadeau.objects.get(slug=self.kwargs['slug'])
         initial['cadeau'] = cadeau
-        initial['montant'] = cadeau.montant_restant
         return initial
 
     def form_valid(self, form):
+        print(form.instance)
         return super(CreateReservationView, self).form_valid(form)
 
     def get_success_url(self):

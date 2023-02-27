@@ -37,15 +37,18 @@ class Cadeau(models.Model):
         if self.web_site is None:
           self.web_site = self.url.split('/')[2]
 
-        montant_reserve = 0
-        for reservation in self.reservation.all():
-            if reservation.montant is not None:
-                montant_reserve += reservation.montant
-        self.montant_restant = round(self.prix - montant_reserve,2)
+        self.montant_restant = self.check_reservation()
 
         self.slug = slugify('{} {}'.format(self.titre, self.uniqueId))
         self.last_updated = timezone.localtime(timezone.now())
         
         super(Cadeau, self).save(*args, **kwargs)
 
-    
+    def check_reservation(self):
+        montant_reserve = 0
+        for reservation in self.reservation.all():
+            if not reservation.participation_partielle:
+                return 0
+            if reservation.montant is not None:
+                montant_reserve += reservation.montant
+        return round(self.prix - montant_reserve,2)

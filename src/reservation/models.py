@@ -33,3 +33,6 @@ class Reservation(models.Model):
       self.last_updated = timezone.localtime(timezone.now())
       
       super(Reservation, self).save(*args, **kwargs)
+
+  def __str__(self) -> str:
+    return str(self.slug)

@@ -4,7 +4,11 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(255, 255, 255, 0.767);
+  background-color: var(--overlay-color);
+}
+
+header h1{
+  text-align: center;
 }
 
 .help__title {
@@ -16,10 +20,10 @@
 }
 
 .help {
-  width: 90%;
+  width: 100%;
   max-width: 1000px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .help > button {
@@ -37,17 +41,15 @@
 }
 
 .help__step > img {
-  height: 150px;
-  width: 210px;
-  max-width: 25vw;
+  max-width: 29vw;
   border-radius: 10px;
 }
 .help__step > span {
-  font-size: 1.5em;
+  font-size: 1.3em;
 }
 .help__step span:first-child {
   background-color: var(--primary-color);
-  padding: 0.7em 1em;
+  padding: 0.4em 1em;
   border-radius: 50%;
 }
 
@@ -89,4 +91,17 @@
 
 .hidden {
   display: none;
+}
+
+@media screen and (min-width: 700px) {
+  .help {
+    width: 90%;
+    justify-content: space-around;
+  }
+  .help__step > img {
+    height: 150px;
+    width: 210px;
+    max-width: 25vw;
+    border-radius: 10px;
+  }
 }

@@ -1,0 +1,28 @@
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+article{
+    width : 80%;
+    max-width: 500px;
+    min-height: 200px;
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: solid 2px var(--primary-color);
+    border-radius: 1em;
+}
+article>h1{
+    align-self: center;
+}
+
+article span{
+    font-size: 2em;
+}
+
+article a{
+    align-self: center;
+}

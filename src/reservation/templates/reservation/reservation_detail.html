@@ -1,1 +1,22 @@
-Congrats
+{% extends "ListeNaissance/base.html" %}
+{% load static %}
+
+{% block custom_css %}
+  <link rel="stylesheet" href="{% static 'reservation/css/confirm.css' %}" />
+{% endblock custom_css %}
+
+{% block head_data %}
+    {% include "ListeNaissance/header.html" %}
+{% endblock head_data %}
+
+{% block main_data %}
+    <article>
+        <h1>Merci</h1>
+        <p>
+            La réservation a bien été effectuée, vous allez recevoir un mail de confirmation.
+        Si vous avez fait une erreur ou que souhaitez annuler votre reservation veuillez suivre le lien que vous avez reçu par mail.
+        </p>
+        <p>Merci et gros bisous de la part de Coline et de Benoit.</p>
+        <a href="{% url 'liste:liste' %}"><span>&#8592;</span>	 Retour à la liste</a>
+    </article>
+{% endblock main_data %}
