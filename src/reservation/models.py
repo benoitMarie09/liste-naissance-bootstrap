@@ -9,7 +9,7 @@ class Reservation(models.Model):
   nom = models.CharField(max_length=100)
   email = models.EmailField()
   participation_partielle = models.BooleanField(default=False)
-  montant = models.FloatField(default = 0)
+  montant = models.FloatField(default = 0, blank=True, null=True)
   discret = models.BooleanField(default=False)
   message = models.TextField(null=True, blank=True)
 

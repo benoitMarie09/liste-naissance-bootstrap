@@ -1,137 +1,28 @@
-/* CSS reset */
-body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { 
-    margin:0;
-    padding:0;
-}
-html,body {
-    margin:0;
-    padding:0;
-    height : 100%;
-}
-table {
-    border-collapse:collapse;
-    border-spacing:0;
-}
-fieldset,img { 
-    border:0;
-}
-input{
-    border:1px solid #b0b0b0;
-    padding:3px 5px 4px;
-}
-address,caption,cite,code,dfn,th,var {
-    font-style:normal;
-    font-weight:normal;
-}
-ol,ul {
-    list-style:none;
-}
-caption,th {
-    text-align:left;
-}
-h1,h2,h3,h4,h5,h6 {
-    font-size:100%;
-    font-weight:normal;
-}
-q:before,q:after {
-    content:'';
-}
-abbr,acronym { border:0;
-}
-
 /* GRID Structure */
 body {
-    display: grid;
-    grid-template-rows: 450px 1fr 80px;
-    grid-template-areas: "head" "main" "foot";
-    background-image: url("../img/bg.jpg");
-  }
-  
+  display: grid;
+  grid-template-rows: 400px 1fr 80px;
+  grid-template-areas: "head" "main" "foot";
+  background-image: url("../img/bg.jpg");
+}
+
 header {
-    grid-area: head;
-    background-image: url(../img/babyGear.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-color: var(--secondary-color);
+  grid-area: head;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 30px 70px 40px 1fr;
+  justify-items: center;
 }
 
 main {
-    grid-area: main;
-    background-image: url(../img/baby-gfb7abf29c_1280.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: 0%;
-    background-attachment: fixed;
+  grid-area: main;
 }
 
-footer{
-    grid-area: foot;
-    background-color: blanchedalmond;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-  
-
-/* Carte cadeau */
-.cadeau{
-    min-height: 7em;
-    width : 80%;
-    display : grid;
-    padding:1em;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto auto auto;
-    gap:15px;
-    grid-template-areas: 
-    "img "
-    "titre"
-    "desc"
-    "prix"
-    "reserv"
-    ;
-}
-
-
-.cadeau__img {
-    grid-area: img;
-    width: 100%;
-    align-self: center;
-}
-
-.cadeau__titre {
-    grid-area: titre ;
-    font-size: 1.2em;
-    align-self: center;
-}
-
-.cadeau__desc {
-    grid-area: desc;
-}
-
-.cadeau__prix {
-    grid-area: prix;
-    align-self: center;
-}
-
-.cadeau__reserv {
-    grid-area:reserv ;
-    align-self: center;
-    justify-self: end;
-}
-
-@media screen and (min-width : 700px) {
-    .cadeau{
-        min-height: 7em;
-        width : 80%;
-        display : grid;
-        padding:1em;
-        grid-template-columns: minmax(150px, 250px) 1fr 1fr;
-        grid-template-rows: 1fr 3fr 1fr;
-        gap:5px;
-        grid-template-areas: 
-        "img titre titre"
-        "img desc desc"
-        "img prix reserv"
-        ;
-    }
-    
+footer {
+  grid-area: foot;
+  background-color: var(--secondary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

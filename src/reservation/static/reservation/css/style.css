@@ -1,74 +1,71 @@
 main {
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.cadeau{
-  grid-template-areas: 
+.cadeau {
+  grid-template-areas:
     "img "
     "titre"
     "desc"
-    "prix"
-    ;
+    "prix";
 }
 
-section{
+.reservation__container {
   width: 80%;
-  height :auto;
+  height: auto;
   max-width: 800px;
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: bisque;
+  background-color: var(--primary-color);
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
-
-
-.form{
-  width : 80%;
+.form {
+  width: 80%;
   padding: 1em;
-  display:flex;
+  display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-input{
+input {
   background-color: rgb(255, 255, 218);
 }
 
-textarea{
+textarea {
   background-color: rgb(255, 255, 218);
 }
 
-#montant__container{
-  display:none;
+#montant__container {
+  display: none;
 }
-.form__field{
-  display : flex;
+.form__field {
+  display: flex;
   flex-direction: column;
 }
 
-.flex-row{
-  display : flex;
+.flex-row {
+  display: flex;
   flex-direction: column;
 }
 
-.flex-start{
+.flex-start {
   justify-content: flex-start;
 }
 
-.buttons{
+.buttons {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.buttons button{
-  border : none;
+.buttons button {
+  border: none;
   padding: 0.5em;
   font-size: 1.1em;
   background-color: rgb(247, 202, 147);
@@ -79,16 +76,15 @@ textarea{
   background-color: rgb(247, 186, 112);
 }
 
-@media screen and (min-width : 700px) {
-  .cadeau{
-      grid-template-areas: 
+@media screen and (min-width: 700px) {
+  .cadeau {
+    grid-template-areas:
       "img titre titre"
       "img desc desc"
-      "img prix prix"
-      ;
+      "img prix prix";
   }
-  .flex-row{
-    display : flex;
+  .flex-row {
+    display: flex;
     flex-direction: row;
   }
 }

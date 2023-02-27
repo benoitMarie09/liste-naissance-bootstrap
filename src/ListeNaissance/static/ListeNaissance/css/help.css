@@ -1,0 +1,92 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.767);
+}
+
+.help__title {
+  align-self: self-end;
+}
+
+.underline {
+  align-self: self-start;
+}
+
+.help {
+  width: 90%;
+  max-width: 1000px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.help > button {
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.help__step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+
+.help__step > img {
+  height: 150px;
+  width: 210px;
+  max-width: 25vw;
+  border-radius: 10px;
+}
+.help__step > span {
+  font-size: 1.5em;
+}
+.help__step span:first-child {
+  background-color: var(--primary-color);
+  padding: 0.7em 1em;
+  border-radius: 50%;
+}
+
+.X {
+  position: sticky;
+  background-color: transparent;
+  border: none;
+  top: 0%;
+  left: 95%;
+  cursor: pointer;
+}
+
+.help__card {
+  position: fixed;
+  background-color: var(--help-card-color);
+  margin: auto auto;
+  top: 50px;
+  width: 80%;
+  max-width: 800px;
+  max-height: 80vh;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1em;
+  padding: 2em 1em;
+  border-radius: 1em;
+}
+
+.help__card > img {
+  max-width: 80%;
+  align-self: center;
+}
+
+.help__card li {
+  margin-bottom: 1em;
+}
+
+.hidden {
+  display: none;
+}

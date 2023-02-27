@@ -1,4 +1,4 @@
-{%load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,13 +9,16 @@
     <title>Liste naissance</title>
   </head>
   <body>
-    <header></header>
+    <header>
+      header
+    </header>
     <main>
-        <form method="post">{% csrf_token %}
-            <p>Are you sure you want to delete "{{ object }}"?</p>
-            {{ form }}
-            <input type="submit" value="Confirm">
-        </form>
+      <form method="post">
+        {% csrf_token %}
+        <p>Are you sure you want to delete "{{ object }}"?</p>
+        {{ form }}
+        <input type="submit" value="Confirm"/>
+      </form>
     </main>
   </body>
 </html>

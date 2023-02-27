@@ -4,11 +4,13 @@
   <link rel="stylesheet" href="{% static 'liste/css/style.css' %}" />
 {% endblock custom_css %}
 {% block custom_js %}
-  <script src="{% static 'liste/js/script.js' %}"></script>
+  <script src="{% static 'liste/js/script.js' %}" async></script>
 {% endblock custom_js %}
 {% block head_data %}
+  {% include "ListeNaissance/header.html" %}
 {% endblock head_data %}
 {% block main_data %}
+  {% include "ListeNaissance/help_card.html" %}
   {% for cadeau in cadeaux.all %}
     <div class="cadeau">
       <img class="cadeau__img"
@@ -19,21 +21,22 @@
       <h3 class="cadeau__titre">{{ cadeau.titre }}</h3>
       <p class="cadeau__desc">{{ cadeau.desc }}</p>
       <p class="cadeau__prix">
-        {{ cadeau.prix }}€ chez <a href="{{ cadeau.url }}">{{ cadeau.web_site }}</a>
+        {{ cadeau.prix }}€ chez
+        <a target="_blank" href="{{ cadeau.url }}">{{ cadeau.web_site }}</a>
       </p>
       <p class="cadeau__reserv">
         {% if cadeau.montant_restant == cadeau.prix %}
-          <a href=" {% url 'reservation:reservation' cadeau.slug %} ">Offrir/Contribuer à ce cadeau</a>
-        {% elif cadeau.montant_restant > 0 %}
-          Il reste {{ cadeau.montant_restant }}!<a href="{% url 'reservation:reservation' cadeau.slug %}">Contribuer à ce cadeau</a>
-        {% else %}
-          Ce cadeau est reservé par
-          {% for reservation in cadeau.reservation.all %}
-            {{
-            reservation.nom }}
-          {% endfor %}
-        {% endif %}
-      </p>
-    </div>
-  {% endfor %}
-{% endblock main_data %}
+          <a href=" {% url 'reservation:reservation' cadeau.slug %} ">Offrir/Contribuer à ce cadeau</a
+            >
+          {% elif cadeau.montant_restant > 0 %}
+            Il reste {{ cadeau.montant_restant }}€
+            <a href="{% url 'reservation:reservation' cadeau.slug %}">Contribuer à ce cadeau</a
+              >
+            {% else %}
+              Ce cadeau est reservé par
+              {% for reservation in cadeau.reservation.all %}{{ reservation.nom }}{% endfor %}
+            {% endif %}
+          </p>
+        </div>
+      {% endfor %}
+    {% endblock main_data %}

@@ -16,19 +16,20 @@ class CreateReservationView(CreateView):
     form_class = ReservationForm
     template_name = 'reservation/reservation_form.html'
 
-    def form_valid(self, form):
-        cadeau_slug = self.kwargs['slug']
-        cadeau = Cadeau.objects.get(slug=cadeau_slug)
-        form.instance.cadeau = cadeau
-        form.instance.save()
-        cadeau.save()
-        self.send_confirm_mail(form)
+    def get_initial(self):
+        initial = super(CreateReservationView, self).get_initial()
+        initial = initial.copy()
+        cadeau = Cadeau.objects.get(slug=self.kwargs['slug'])
+        initial['cadeau'] = cadeau
+        initial['montant'] = cadeau.montant_restant
+        return initial
 
+    def form_valid(self, form):
         return super(CreateReservationView, self).form_valid(form)
 
     def get_success_url(self):
         self.object.cadeau.save()
-        return reverse('success', kwargs={'slug': self.object.slug})
+        return reverse('reservation:success', kwargs={'slug': self.object.slug})
 
     def send_confirm_mail(self, form):
         message = "{name} / {email} said: ".format(
@@ -40,7 +41,7 @@ class CreateReservationView(CreateView):
         ).split("/")[1]+"/"+self.request.build_absolute_uri().split("/")[2]
         send_mail(
             subject="coucou",
-            message=f"Cliquer sur cette adresse {base_url+reverse('delete', kwargs={'slug':form.instance.slug})} pour annuler la reservation",
+            message=f"Cliquer sur cette adresse {base_url+reverse('reservation:delete', kwargs={'slug':form.instance.slug})} pour annuler la reservation",
             from_email='benoitmarie@colinelamy.fr',
             recipient_list=[form.cleaned_data.get('email')],
         )

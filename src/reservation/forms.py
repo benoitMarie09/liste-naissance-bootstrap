@@ -13,6 +13,7 @@ class ReservationForm(forms.ModelForm):
       'montant',
       'discret',
       'message',
+      'cadeau',
     ]
     labels = {
       'nom' : 'Nom :',
@@ -27,4 +28,6 @@ class ReservationForm(forms.ModelForm):
     }
   def __init__(self, *args, **kwargs):
     super(ReservationForm, self).__init__(*args, **kwargs)
-    
+    print(kwargs['initial']['cadeau'].montant_restant)
+  
+  

@@ -1,0 +1,95 @@
+{% load static %}
+<div class="overlay hidden" id="overlay"></div>
+<article class="help__card hidden" id="help__choisir">
+  <button class="X" onclick="closeChoisir()">
+    <img height="30px"
+         src="{% static 'ListeNaissance/img/closeX.png' %}"
+         alt="close"/>
+  </button>
+  <h1>Offrir un cadeau</h1>
+  <p>Ce site vous permet d'indiquer que vous souhaitez offrir un ou plusieurs cadeaux sur une liste d'envies cadeaux.</p>
+  <p>
+    Pour cela il faut cliquer sur le lien " Offrir/Contribuer à ce cadeau" en bas à droite de chaque cadeau que vous souhaitez offrir :
+  </p>
+  <img src="{% static 'ListeNaissance/img/screenshot_choisir.png' %}"
+       alt="screenshot choisir"/>
+  <p>Ceci permettra aux autres invités de ne plus offrir ce cadeau et donc d'éviter les doublons.</p>
+  <p>
+    Vous pourrez ensuite communiquer votre Nom et votre adresse email (afin de pouvoir annuler votre reservation), écrire un petit message textuel à l'intention de Coline et Benoit. La réservation sera effective lorsque vous aurez cliqué sur le bouton "Reserver":
+  </p>
+  <p>
+    Vous pouvez aussi choisir de ne participer que partiellement  en cochant la case "Je souhaite participer partiellement" et en entrant le montant de votre participation.
+  </p>
+  <p>Les autres invités seront alors informés du montant restant.</p>
+  <img src="{% static 'ListeNaissance/img/screenshot_reserver.png' %}"
+       alt="screenshot reserver"/>
+</article>
+<article class="help__card hidden" id="help__acheter">
+  <button class="X" onclick="closeAcheter()">
+    <img height="30px"
+         src="{% static 'ListeNaissance/img/closeX.png' %}"
+         alt="close"/>
+  </button>
+  <h1>Acheter le cadeau</h1>
+  <p>Ensuite il faudra acheter le cadeau afin de l'offrir.</p>
+  <p>Pour cela vous pourrez :</p>
+  <ul>
+    <li>soit acheter le cadeau sur le site indiqué par l'auteur de la liste en cliquant sur le lien du cadeau.</li>
+    <li>soit acheter le cadeau dans le magasin de votre choix (en ligne ou dans votre quartier).</li>
+    <li>
+      soit (notament si vous avez fait une contribution partielle) faire un versement directement sur le compte bancaire
+      <br/>
+      IBAN : FR76 4255 9100 0004 1225 0161 665
+    </li>
+  </ul>
+  <p>
+    Si vous souhaitez annuler votre réservation, veuillez suivre le lien qui vous à été envoyé par mail ou contacter directement Benoit <adress><a href="tel:+33652535211">06 52 53 52 11</a> <a href="mailto:benoit.marie09@proton.me">benoit.marie09@proton.me</a></adress>
+  </p>
+</article>
+<article class="help__card hidden" id="help__livrer">
+  <button class="X" onclick="closeLivrer()">
+    <img height="30px"
+         src="{% static 'ListeNaissance/img/closeX.png' %}"
+         alt="close"/>
+  </button>
+  <h1>Livrer le cadeau</h1>
+  <p>Pour nous faire parvenir le cadeau vous pourrez :</p>
+  <ul>
+    <li>soit nous l'envoyer ou le livrer directement à l'adresse ci-dessous</li>
+    <li>soit nous l'envoyer au point relais le plus proche voir ci-dessous</li>
+    <li>soit nous le remettre en main propre ce sera une bonne occasion de se voir.</li>
+  </ul>
+  <p>Voici nos coordonnées :</p>
+  <address>
+    <p>les Amades 5 avenue du pont 09500 Mirepoix</p>
+  </address>
+  <p>
+    Benoit :
+    <ul>
+      <li>
+        mail : <a href="mailto:benoit.marie09@proton.me">benoit.marie09@proton.me</a>
+      </li>
+      <li>
+        tel :  <a href="tel:+0652535211">06 52 53 52 11</a>
+      </li>
+    </ul>
+  </p>
+  <p>
+    Coline :
+    <ul>
+      <li>
+        mail : <a href="mailto:mauvelamy@gmail.com">mauvelamy@gmail.com</a>
+      </li>
+      <li>
+        tel : <a href="tel:+687669696">06 87 66 96 96</a>
+      </li>
+    </ul>
+  </p>
+  <p>Point relais : </p>
+  <p>
+    En cas ded participation partielle vous pouvez nous envoyer la contribution sur notre compte bancaire IBAN : FR76 4255 9100 0004 1225 0161 665
+  </p>
+  <p>
+    Si vous souhaitez annuler votre réservation, veuillez suivre le lien qui vous à été envoyé par mail ou contacter directement Benoit
+  </p>
+</article>

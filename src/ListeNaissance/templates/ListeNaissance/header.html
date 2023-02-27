@@ -1,0 +1,30 @@
+{% load static %}
+<h1>Liste de naissance de Coline et Benoit</h1>
+<h1 class="help__title">Comment ça marche ?</h1>
+<img class="underline"
+     height="50px"
+     src="{% static 'ListeNaissance/img/underline.png' %}"
+     alt="underline"/>
+<section class="help">
+  <button onclick="openChoisir()">
+    <div class="help__step">
+      <span>1</span>
+      <img src="{% static 'ListeNaissance/img/choisir.jpg' %}" alt="Choisir"/>
+      <span>Choisir</span>
+    </div>
+  </button>
+  <button onclick="openAcheter()">
+    <div class="help__step">
+      <span>2</span>
+      <img src="{% static 'ListeNaissance/img/payer.jpg' %}" alt="Acheter"/>
+      <span>Acheter</span>
+    </div>
+  </button>
+  <button onclick="openLivrer()">
+    <div class="help__step">
+      <span>3</span>
+      <img src="{% static 'ListeNaissance/img/envoyé.jpg' %}" alt="Livrer"/>
+      <span>Livrer</span>
+    </div>
+  </section>
+</button>
