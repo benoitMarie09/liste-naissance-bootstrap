@@ -1,42 +1,61 @@
 {% extends "ListeNaissance/base.html" %}
 {% load static %}
 {% block custom_css %}
-  <link rel="stylesheet" href="{% static 'liste/css/style.css' %}" />
 {% endblock custom_css %}
 {% block custom_js %}
-  <script src="{% static 'liste/js/script.js' %}" async></script>
+<script src="{% static 'liste/js/script.js' %}" async></script>
 {% endblock custom_js %}
+{% block modal_data %}
+{% include "ListeNaissance/help_card.html" %}
+{% endblock modal_data %}
 {% block head_data %}
-  {% include "ListeNaissance/header.html" %}
+{% include "ListeNaissance/header.html" %}
 {% endblock head_data %}
 {% block main_data %}
-  {% include "ListeNaissance/help_card.html" %}
-  {% for cadeau in cadeaux.all %}
-    <div class="cadeau">
-      <img class="cadeau__img"
-           height="auto"
-           width="70px"
-           src="{{ cadeau.image.url }}"
-           alt="image"/>
-      <h3 class="cadeau__titre">{{ cadeau.titre }}</h3>
-      <p class="cadeau__desc">{{ cadeau.desc }}</p>
-      <p class="cadeau__prix">
-        {{ cadeau.prix }}€ chez
-        <a target="_blank" href="{{ cadeau.url }}">{{ cadeau.web_site }}</a>
-      </p>
-      <p class="cadeau__reserv">
-        {% if cadeau.montant_restant == cadeau.prix %}
-          <a href=" {% url 'reservation:reservation' cadeau.slug %} ">Offrir/Contribuer à ce cadeau</a
-            >
-          {% elif cadeau.montant_restant > 0 %}
-            Il reste {{ cadeau.montant_restant }}€
-            <a href="{% url 'reservation:reservation' cadeau.slug %}">Contribuer à ce cadeau</a
-              >
-            {% else %}
-              Ce cadeau est reservé par
-              {% for reservation in cadeau.reservation.all %}{{ reservation.nom }}{% endfor %}
-            {% endif %}
+{% include "ListeNaissance/helper.html" %}
+<article class="card">
+<div class="card-header bg-secondary">
+  <h3>Liste de nos envies :</h3>
+</div>
+<div class="card-body bg-transparent">
+  <div class="row gy-5">
+{% for cadeau in cadeaux.all %}
+  <div class="col-12">
+    <section class="card bg-primary">
+    <header class="card-header text-white">
+      <h3>{{ cadeau.titre }}</h3>
+    </header>
+    <main class="card-body">
+      <div class="row">
+        <div class="col-12 col-sm-4 col-md-3 col-lg-2">
+          <img class="card-img" height="auto" width="70px" src="{{ cadeau.image.url }}" alt="image" />
+        </div>
+        <div class="col-12 col-sm-8">
+          <p>{{ cadeau.desc }}</p>
+          <p>
+            {{ cadeau.prix }}€ chez
+            <a class="text-info" target="_blank" href="{{ cadeau.url }}">{{ cadeau.web_site }}</a>
           </p>
         </div>
-      {% endfor %}
-    {% endblock main_data %}
+      </div>
+        </main>
+          <footer class="card-footer">
+          <p class="text-end text-info">
+            {% if cadeau.montant_restant == cadeau.prix %}
+            <a class="text-info" href=" {% url 'reservation:reservation' cadeau.slug %} ">Offrir/Contribuer à ce cadeau</a>
+            {% elif cadeau.montant_restant > 0 %}
+            Il reste {{ cadeau.montant_restant }}€
+            <a class="text-info" href="{% url 'reservation:reservation' cadeau.slug %}">Contribuer à ce cadeau</a>
+            {% else %}
+            Ce cadeau est reservé par
+            {% for reservation in cadeau.reservation.all %}{{ reservation.nom }}{% endfor %}
+            {% endif %}
+          </p>
+        </footer>
+  </section>
+  </div>
+{% endfor %}
+</div>
+</div>
+</article>
+{% endblock main_data %}

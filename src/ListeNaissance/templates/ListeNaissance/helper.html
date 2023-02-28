@@ -1,0 +1,37 @@
+{% load static %}
+<h1 class="text-center">Comment ça marche ?</h1>
+<div class="d-flex justify-content-center">
+    <img height="50px" src="{% static 'ListeNaissance/img/underline.png' %}" alt="underline" />
+</div>
+<section class="justify-content-around row gy-3">
+    <div class="card col-5 col-sm-3 col-lg-2 bg-secondary">
+        <div class="card-header bg-transparent d-flex justify-content-center flex-column align-items-center">
+            <span class="rounded-circle bg-primary text-center text-white align-middle py-1 px-3 " >1</span><h4>Choisir</h4>
+        </div>
+        <img height="100%" class="card-img" src="{% static 'ListeNaissance/img/choisir.jpg' %}" alt="Choisir" />
+        <div class="card-footer d-flex justify-content-center bg-transparent">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#choisirModal">Info</button>
+        </div>
+    </div>
+    <div class="card col-5 col-sm-3 col-lg-2 bg-secondary">
+        <div class="card-header bg-transparent d-flex justify-content-center flex-column align-items-center">
+            <span class="rounded-circle bg-primary text-center text-white align-middle py-1 px-3 " >2</span><h4>Acheter</h4>
+        </div>
+        <img height="100%" class="card-img" src="{% static 'ListeNaissance/img/payer.jpg' %}" alt="Acheter" />
+        <div class="card-footer d-flex justify-content-center bg-transparent">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#acheterModal">Info</button>
+        </div>
+    </div>
+    <div class="card col-5 col-sm-3 col-lg-2 bg-secondary">
+        <div class="card-header bg-transparent d-flex justify-content-center flex-column align-items-center">
+            <span class="rounded-circle bg-primary text-center text-white align-middle py-1 px-3 " >3</span><h4>Envoyer</h4>
+        </div>
+        <img height="100%" class="card-img" src="{% static 'ListeNaissance/img/envoyé.jpg' %}" alt="Livrer" />
+        <div class="card-footer d-flex justify-content-center bg-transparent">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#livrerModal">Info</button>
+        </div>
+    </div>
+</section>
+<div class="d-flex justify-content-center">
+    <img height="50px" src="{% static 'ListeNaissance/img/underline.png' %}" alt="underline" />
+</div>

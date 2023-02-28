@@ -1,50 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+body{
+    background-image: url(../img/bg.jpg);
+}
 *{
-  font-family: var(--primary-font);
-}
-
-html{
-  font-size: 0.8em;
-}
-/* GRID Structure */
-body {
-  display: grid;
-  grid-template-rows: 400px 1fr 80px;
-  grid-template-areas: "head" "main" "foot";
-  background-image: url("../img/bg.jpg");
-}
-
-
-header {
-  background-color: var(--secondary-color);
-  grid-area: head;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 30px 70px 40px 1fr;
-  justify-items: center;
-}
-
-main {
-  grid-area: main;
-}
-
-footer {
-  grid-area: foot;
-  background-color: var(--secondary-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-header h1 {
-   font-size: 1.6em;
- }
-@media screen and (min-width: 700px) {
-   html{
-    font-size: 0.9em;
-   }
-}
-@media screen and (min-width: 500px) {
-  html{
-   font-size: 90%;
-  }
-  
+    font-family: 'Pacifico', cursive;
 }

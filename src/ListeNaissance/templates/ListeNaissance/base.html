@@ -1,4 +1,6 @@
 {% load static %}
+{% load compress %}
+
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -6,40 +8,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="{% static 'ListeNaissance/js/script.js' %}" async></script>
+    <link rel="stylesheet" href="{% static 'ListeNaissance/css/global.css' %}"/>
     <title>
       {% block title %}
       {% endblock title %}
     </title>
-    <link rel="stylesheet"
-          href="{% static 'ListeNaissance/css/reset.css' %}"
-          type="text/css"/>
-    <link rel="stylesheet"
-          href="{% static 'ListeNaissance/css/global.css' %}"
-          type="text/css"/>
-    <link rel="stylesheet"
-          href="{% static 'ListeNaissance/css/variables.css' %}"
-          type="text/css"/>
-    <link rel="stylesheet"
-          href="{% static 'ListeNaissance/css/cadeau.css' %}"
-          type="text/css"/>
-    <link rel="stylesheet"
-          href="{% static 'ListeNaissance/css/help.css' %}"
-          type="text/css"/>
+    {% compress css %}
+      <link type="text/x-scss" href="{% static 'scss/bootstrap.scss' %}" rel="stylesheet" media="screen"/>
+    {% endcompress %}
     {% block custom_css %}
     {% endblock custom_css %}
     {% block custom_js %}
     {% endblock custom_js %}
   </head>
-  <body>
-    <header>
+  <body class="d-flex flex-column min-vh-100">
+      {% block modal_data %}
+      {% endblock modal_data %}
+    <header class="container-fluid bg-secondary p-4 " >
       {% block head_data %}
       {% endblock head_data %}
     </header>
-    <main>
+    <main class="container py-5">
       {% block main_data %}
       {% endblock main_data %}
     </main>
-    <footer>
+    <footer class="mt-auto bg-secondary">
       <p>
         Copyright {% now "Y" %}
         <strong>Liste de naissance de Coline Lamy et Benoit Marie</strong>
@@ -48,5 +41,6 @@
         <a href="tel:+33652535211">06 52 53 52 11</a>
       </p>
     </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>
 </html>

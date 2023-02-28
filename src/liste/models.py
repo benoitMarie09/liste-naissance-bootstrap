@@ -37,11 +37,14 @@ class Cadeau(models.Model):
         if self.web_site is None:
           self.web_site = self.url.split('/')[2]
 
-        self.montant_restant = self.check_reservation()
-
         self.slug = slugify('{} {}'.format(self.titre, self.uniqueId))
         self.last_updated = timezone.localtime(timezone.now())
         
+        super(Cadeau, self).save(*args, **kwargs)
+        if self.reservation:
+            self.montant_restant = self.check_reservation()
+        else:
+            self.montant_restant = self.prix
         super(Cadeau, self).save(*args, **kwargs)
 
     def check_reservation(self):
