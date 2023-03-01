@@ -38,47 +38,12 @@
     </div>
     </main>
     </div>
-    <form class="" action="" method="post">
+    <form class="form" action="" method="post">
       {% csrf_token %}
-      {{ form.non_field_error }}
-      <div class="">
-        {{ form.cadeau.as_hidden }}
-        <div>
-          {{ form.participation_partielle.errors }}
-          <label for="{{ form.participation_partielle.id_for_label }}">{{ form.participation_partielle.label }}</label>
-          {{ form.participation_partielle }}
-        </div>
-        <div id="">
-          {{ form.montant.errors }}
-          <label for="{{ form.montant.id_for_label }}">{{ form.montant.label }}</label>
-          <input type="number"
-                 id="id_montant"
-                 name="montant"
-                 max="{{ cadeau.montant_restant }}"
-                 step="0.01"
-                 required
-                 disabled/>
-          <span>max {{ cadeau.montant_restant }}</span>
-        </div>
-      </div>
-      <div class="form__field">
-        {{ form.nom.errors }}
-        <label for="{{ form.nom.id_for_label }}">{{ form.nom.label }}</label>
-        {{ form.nom }}
-      </div>
-      <div class="form__field">
-        {{ form.email.errors }}
-        <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
-        {{ form.email }}
-      </div>
-      <div class="form__field">
-        {{ form.message.errors }}
-        <label for="{{ form.message.id_for_label }}">{{ form.message.label }}</label>
-        {{ form.message }}
-      </div>
-      <div class="buttons">
-        <button type="submit">Reserver</button>
-        <button onclick="location.href='{% url 'liste:liste' %}'">Annuler</button>
+      {% bootstrap_form form %}
+      <div class="d-flex justify-content-around">
+        <button class="btn btn-secondary" type="submit">Reserver</button>
+        <button class="btn btn-danger" onclick="location.href='{% url 'liste:liste' %}'">Annuler</button>
       </div>
     </form>
   </section>

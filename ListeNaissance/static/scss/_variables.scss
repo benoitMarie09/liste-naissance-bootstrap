@@ -6,6 +6,7 @@
 // My colors
 $my-primary-color : #8d3e6bbb;
 $my-secondary-color : #6b8d3ec4;
+$my-delete-color : rgb(255, 44, 107);
 
 // Color system
 
@@ -76,7 +77,7 @@ $secondary:     $my-secondary-color !default;
 $success:       $green !default;
 $info:          $cyan !default;
 $warning:       $yellow !default;
-$danger:        $red !default;
+$danger:        $my-delete-color !default;
 $light:         $gray-100 !default;
 $dark:          $gray-900 !default;
 // scss-docs-end theme-color-variables
