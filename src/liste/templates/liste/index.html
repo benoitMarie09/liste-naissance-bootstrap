@@ -44,11 +44,17 @@
             {% if cadeau.montant_restant == cadeau.prix %}
             <a class="text-info" href=" {% url 'reservation:reservation' cadeau.slug %} ">Offrir/Contribuer à ce cadeau</a>
             {% elif cadeau.montant_restant > 0 %}
-            Il reste {{ cadeau.montant_restant }}€
-            <a class="text-info" href="{% url 'reservation:reservation' cadeau.slug %}">Contribuer à ce cadeau</a>
+              Il reste {{ cadeau.montant_restant }}€
+              <a class="text-info" href="{% url 'reservation:reservation' cadeau.slug %}">Contribuer à ce cadeau</a>
             {% else %}
-            Ce cadeau est reservé par
-            {% for reservation in cadeau.reservation.all %}{{ reservation.nom }}{% endfor %}
+              Ce cadeau est reservé par
+              {% for reservation in cadeau.reservation.all %}
+                {% if reservation.discret %}
+                  inconnu
+                {% else %}
+                  {{ reservation.nom }}
+                {% endif %}
+              {% endfor %}
             {% endif %}
           </p>
         </footer>

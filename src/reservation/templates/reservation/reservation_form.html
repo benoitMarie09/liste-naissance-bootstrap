@@ -14,7 +14,7 @@
 {% endblock head_data %}
 {% block main_data %}
   {% include "ListeNaissance/help_card.html" %}
-  <section class="">
+  <section>
     <div class="card">
     <header class="card-header">
       <h3 class="card-title">{{ cadeau.titre }}</h3>
@@ -38,13 +38,10 @@
     </div>
     </main>
     </div>
+    {% load crispy_forms_tags %}
     <form class="form" action="" method="post">
       {% csrf_token %}
-      {% bootstrap_form form %}
-      <div class="d-flex justify-content-around">
-        <button class="btn btn-secondary" type="submit">Reserver</button>
-        <button class="btn btn-danger" onclick="location.href='{% url 'liste:liste' %}'">Annuler</button>
-      </div>
+      {% crispy form %}
     </form>
   </section>
 {% endblock main_data %}

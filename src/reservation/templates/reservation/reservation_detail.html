@@ -1,15 +1,22 @@
-{% extends "ListeNaissance/base.html" %} {% load static %} 
-{% block custom_css %} {% endblock custom_css %} {% block head_data %} 
+{% extends "ListeNaissance/base.html" %} {% load static %}
+{% block custom_css %} {% endblock custom_css %} {% block head_data %}
 {% include "ListeNaissance/header.html" %} {% endblock head_data %} {% block main_data %}
-<article>
-  <h1>Merci</h1>
-  <p>
-    La réservation a bien été effectuée, vous allez recevoir un mail de
-    confirmation. Si vous avez fait une erreur ou que souhaitez annuler votre
-    reservation veuillez suivre le lien que vous avez reçu par mail.
-  </p>
-  <p>Merci et gros bisous de la part de Coline et de Benoit.</p>
-  <a href="{% url 'liste:liste' %}"><span>&#8592;</span> Retour à la liste</a>
-  <img height=300 src="{% static 'ListeNaissance/img/merci.jpg' %}" alt="" />
+
+<article class="container row justify-content-center">
+  <div class="d-flex-column col-12 col-md-10 col-lg-8 col-xl-7">
+    <div>
+      <h1 class="mt-0">Merci</h1>
+      <p>
+        La réservation de {{reservation.cadeau.titre}} a bien été effectuée, vous allez recevoir un mail de
+        confirmation. Si vous avez fait une erreur ou que souhaitez annuler votre
+        reservation veuillez suivre le lien que vous avez reçu par mail.
+      </p>
+      <p>Merci et gros bisous de la part de Coline et de Benoit.</p>
+    </div>
+    <div class="  d-flex justify-content-between">
+      <a class="align-self-end " href="{% url 'liste:liste' %}"><span>&#8592;</span> Retour à la liste</a>
+      <img height="200" width="200"  src="{% static 'ListeNaissance/img/merci.png' %}" alt="" />
+    </div>
+  </div>
 </article>
 {% endblock main_data %}

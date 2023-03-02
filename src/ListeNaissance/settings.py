@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'liste',
     'reservation',
     'django_bootstrap5',
+    'crispy_forms',
+    "crispy_bootstrap5",
 ]
 
 MIDDLEWARE = [
@@ -148,4 +150,8 @@ EMAIL_HOST = 'smtp.ionos.fr'
 EMAIL_USE_SSL = True
 EMAIL_PORT = 465
 EMAIL_HOST_USER = 'benoitmarie@colinelamy.fr'
-EMAIL_HOST_PASSWORD = 'Monsuperpasseionos'
+EMAIL_HOST_PASSWORD = 'monsuperpasseemailionos'
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"

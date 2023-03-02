@@ -6,4 +6,5 @@ django-composer
 django-libsass
 django_sass
 django-bootstrap5
-
+django-crispy-forms
+crispy-bootstrap5

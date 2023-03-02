@@ -26,6 +26,7 @@ class CreateReservationView(CreateView):
     def form_valid(self, form):
         super(CreateReservationView, self).form_valid(form)
         self.send_confirm_mail(form)
+        print('------helloo------')
         return super(CreateReservationView, self).form_valid(form)
 
     def get_success_url(self):
@@ -58,6 +59,13 @@ class CreateReservationView(CreateView):
 
 class ReservationDetails(DetailView):
     model = Reservation
+    def get_context_data(self, **kwargs):
+        reservation_slug = self.kwargs['slug']
+        reservation = Reservation.objects.get(slug=reservation_slug)
+        kwargs['reservation'] = reservation
+        reservation.cadeau.save()
+        context = super().get_context_data(**kwargs)
+        return context
 
 
 class ReservationDelete(DeleteView):
