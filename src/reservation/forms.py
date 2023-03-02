@@ -36,4 +36,5 @@ class ReservationForm(forms.ModelForm):
     self.fields['montant'].widget.attrs.update(
             {'max': montant_restant, 'step':0.1})
     self.fields['montant'].help_text = f'montant max : {montant_restant}€'
-  
+    if self.fields['participation_partielle'] == False:
+      self.fields['montant'].widget = forms.HiddenInput()

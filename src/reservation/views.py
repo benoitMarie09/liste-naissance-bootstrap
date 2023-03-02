@@ -24,7 +24,8 @@ class CreateReservationView(CreateView):
         return initial
 
     def form_valid(self, form):
-        print(form.instance)
+        super(CreateReservationView, self).form_valid(form)
+        self.send_confirm_mail(form)
         return super(CreateReservationView, self).form_valid(form)
 
     def get_success_url(self):
@@ -44,6 +45,7 @@ class CreateReservationView(CreateView):
             message=f"Cliquer sur cette adresse {base_url+reverse('reservation:delete', kwargs={'slug':form.instance.slug})} pour annuler la reservation",
             from_email='benoitmarie@colinelamy.fr',
             recipient_list=[form.cleaned_data.get('email')],
+            fail_silently=False,
         )
 
     def get_context_data(self, **kwargs):
