@@ -3,7 +3,6 @@ from reservation.models import Reservation
 from liste.models import Cadeau
 
 class ReservationForm(forms.ModelForm):
-
   class Meta:
     model = Reservation
     fields = [
@@ -15,6 +14,11 @@ class ReservationForm(forms.ModelForm):
       'message',
       'cadeau',
     ]
+
+    widgets = {
+      'cadeau' : forms.HiddenInput()
+    }
+
     labels = {
       'nom' : 'Nom :',
       'email': 'Adresse mail :',
@@ -24,10 +28,12 @@ class ReservationForm(forms.ModelForm):
       'message' : 'Un petit message pour Coline et Benoit'
     }
     help_texts = {
-      'nom' : 'coucou',
+      'email' : 'Vous recevrez un email de confirmation avec un lien pour annuler la reservasion',
     }
   def __init__(self, *args, **kwargs):
     super(ReservationForm, self).__init__(*args, **kwargs)
-    print(kwargs['initial']['cadeau'].montant_restant)
-  
+    montant_restant = kwargs['initial']['cadeau'].montant_restant
+    self.fields['montant'].widget.attrs.update(
+            {'max': montant_restant, 'step':0.1})
+    self.fields['montant'].help_text = f'montant max : {montant_restant}€'
   

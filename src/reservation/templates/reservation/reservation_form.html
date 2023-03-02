@@ -1,4 +1,8 @@
 {% extends "ListeNaissance/base.html" %}
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
 {% load static %}
 {% block custom_css %}
 {% endblock custom_css %}
@@ -10,60 +14,36 @@
 {% endblock head_data %}
 {% block main_data %}
   {% include "ListeNaissance/help_card.html" %}
-  <section class="reservation__container">
-    <div class="cadeau">
-      <img class="cadeau__img"
+  <section class="">
+    <div class="card">
+    <header class="card-header">
+      <h3 class="card-title">{{ cadeau.titre }}</h3>
+    </header>
+    
+    <main class="card-body">
+      <div class="row">
+        <div class="col-12 col-sm-4 col-md-3 col-lg-2">
+      <img class="card-img"
            height="auto"
            width="auto"
            src="{{ cadeau.image.url }}"
            alt="image"/>
-      <h3 class="cadeau__titre">{{ cadeau.titre }}</h3>
-      <p class="cadeau__desc">{{ cadeau.desc }}</p>
-      <p class="cadeau__prix">
+        </div>
+        <div class="col-12 col-sm-8">
+          <p >{{ cadeau.desc }}</p>
+          <p >
         {{ cadeau.prix }}€ chez <a href="{{ cadeau.url }}">{{ cadeau.web_site }}</a>
       </p>
+      </div>
+    </div>
+    </main>
     </div>
     <form class="form" action="" method="post">
       {% csrf_token %}
-      {{ form.non_field_error }}
-      <div class="form__field flex-row">
-        {{ form.cadeau.as_hidden }}
-        <div>
-          {{ form.participation_partielle.errors }}
-          <label for="{{ form.participation_partielle.id_for_label }}">{{ form.participation_partielle.label }}</label>
-          {{ form.participation_partielle }}
-        </div>
-        <div id="montant__container">
-          {{ form.montant.errors }}
-          <label for="{{ form.montant.id_for_label }}">{{ form.montant.label }}</label>
-          <input type="number"
-                 id="id_montant"
-                 name="montant"
-                 max="{{ cadeau.montant_restant }}"
-                 step="0.01"
-                 required
-                 disabled/>
-          <span>max {{ cadeau.montant_restant }}</span>
-        </div>
-      </div>
-      <div class="form__field">
-        {{ form.nom.errors }}
-        <label for="{{ form.nom.id_for_label }}">{{ form.nom.label }}</label>
-        {{ form.nom }}
-      </div>
-      <div class="form__field">
-        {{ form.email.errors }}
-        <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
-        {{ form.email }}
-      </div>
-      <div class="form__field">
-        {{ form.message.errors }}
-        <label for="{{ form.message.id_for_label }}">{{ form.message.label }}</label>
-        {{ form.message }}
-      </div>
-      <div class="buttons">
-        <button type="submit">Reserver</button>
-        <button onclick="location.href='{% url 'liste:liste' %}'">Annuler</button>
+      {% bootstrap_form form %}
+      <div class="d-flex justify-content-around">
+        <button class="btn btn-secondary" type="submit">Reserver</button>
+        <button class="btn btn-danger" onclick="location.href='{% url 'liste:liste' %}'">Annuler</button>
       </div>
     </form>
   </section>

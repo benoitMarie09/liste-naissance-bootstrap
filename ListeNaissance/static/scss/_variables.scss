@@ -4,9 +4,11 @@
 // consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
 
 // My colors
+
 $my-primary-color: #b37fa3;
 $my-secondary-color: #77b17abd;
 $my-info-color: rgb(52, 23, 158);
+$my-delete-color : rgb(255, 44, 107);
 
 // Color system
 
@@ -72,14 +74,16 @@ $colors: (
 // scss-docs-end colors-map
 
 // scss-docs-start theme-color-variables
+
 $primary: $my-primary-color !default;
 $secondary: $my-secondary-color !default;
 $success: $green !default;
 $info: $my-info-color !default;
 $warning: $yellow !default;
-$danger: $red !default;
+$danger: $my-delete-color !default;
 $light: $gray-100 !default;
 $dark: $gray-900 !default;
+
 // scss-docs-end theme-color-variables
 
 // scss-docs-start theme-colors-map

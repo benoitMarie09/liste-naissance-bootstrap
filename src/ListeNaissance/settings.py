@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-2823jh_!aaw#_694o59_)za8+krvo&=rw6ertehxo23!yi7h-l
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','benoitmarie.pythonanywhere.com']
 
 
 # Application definition
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django_sass',
     'liste',
     'reservation',
+    'django_bootstrap5',
 ]
 
 MIDDLEWARE = [

@@ -5,3 +5,5 @@ Pillow==9.2.0
 django-composer
 django-libsass
 django_sass
+django-bootstrap5
+
