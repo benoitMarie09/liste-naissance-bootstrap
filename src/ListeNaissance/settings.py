@@ -150,7 +150,7 @@ EMAIL_HOST = 'smtp.ionos.fr'
 EMAIL_USE_SSL = True
 EMAIL_PORT = 465
 EMAIL_HOST_USER = 'benoitmarie@colinelamy.fr'
-EMAIL_HOST_PASSWORD = 'monsuperpasseemailionos'
+EMAIL_HOST_PASSWORD = '###'
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
