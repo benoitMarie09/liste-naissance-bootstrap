@@ -34,16 +34,17 @@ class CreateReservationView(CreateView):
         return reverse('reservation:success', kwargs={'slug': self.object.slug})
 
     def send_confirm_mail(self, form):
-        message = "{name} / {email} said: ".format(
-            name=form.cleaned_data.get('nom'),
-            email=form.cleaned_data.get('email'))
-        message += "\n\n{0}".format(form.cleaned_data.get('message'))
-
         base_url = self.request.build_absolute_uri().split("/")[0]+"/"+self.request.build_absolute_uri(
         ).split("/")[1]+"/"+self.request.build_absolute_uri().split("/")[2]
+        message = "Merci {name},\nNous sommes impatients de pouvoir profiter de ce cadeau ({cadeau}),\n Gros bisous de la part de Coline, Benoit, et le bébé.\n Pour annuler la réservation cliqué sur le lien :\n  {url}\n ".format(            
+            name=form.cleaned_data.get('nom'),
+            cadeau=form.cleaned_data.get('cadeau'),
+            url=base_url+reverse('reservation:delete', kwargs={'slug':form.instance.slug}))
+
+        
         send_mail(
             subject="coucou",
-            message=f"Cliquer sur cette adresse {base_url+reverse('reservation:delete', kwargs={'slug':form.instance.slug})} pour annuler la reservation",
+            message=message,
             from_email='benoitmarie@colinelamy.fr',
             recipient_list=[form.cleaned_data.get('email')],
             fail_silently=False,
