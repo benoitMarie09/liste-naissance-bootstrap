@@ -51,7 +51,7 @@ class CreateReservationView(CreateView):
         )
         send_mail(
             subject="Reservation",
-            message=f"{form.cleaned_data.get('nom')} a éfféctué une réservation sur la liste de naissance pour {form.cleaned_data.get('cadeau')}",
+            message=f"{form.cleaned_data.get('nom')} a éfféctué une réservation sur la liste de naissance pour {form.cleaned_data.get('cadeau')}, voici leur message :\n {form.cleaned_data.get('message')}",
             from_email='benoitmarie@colinelamy.fr',
             recipient_list=['benoit.marie09@proton.me','mauvelamy@gmail.com'],
             fail_silently=False,
