@@ -43,12 +43,20 @@ class CreateReservationView(CreateView):
 
         
         send_mail(
-            subject="coucou",
+            subject="Merci",
             message=message,
             from_email='benoitmarie@colinelamy.fr',
             recipient_list=[form.cleaned_data.get('email')],
             fail_silently=False,
         )
+        send_mail(
+            subject="Reservation",
+            message=f"{form.cleaned_data.get('nom')} a éfféctué une réservation sur la liste de naissance pour {form.cleaned_data.get('cadeau')}",
+            from_email='benoitmarie@colinelamy.fr',
+            recipient_list=['benoit.marie09@proton.me','mauvelamy@gmail.com'],
+            fail_silently=False,
+        )
+
 
     def get_context_data(self, **kwargs):
         cadeau_slug = self.kwargs['slug']
